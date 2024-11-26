@@ -1,7 +1,7 @@
+import SneakersLogo from "../../../assets/images/logo.svg";
 import { BasketAndLogo } from "./BasketAndLogo/BasketAndLogo";
 import styles from "./Header.module.scss";
 import { NavBar } from "./NavBar/NavBar";
-import SneakersLogo from "../../../assets/images/logo.svg";
 
 export function Header() {
     return (

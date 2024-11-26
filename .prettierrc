@@ -2,5 +2,6 @@
     "tabWidth": 4,
     "arrowParens": "always",
     "singleQuote": false,
-    "useTabs": false
+    "useTabs": false,
+    "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

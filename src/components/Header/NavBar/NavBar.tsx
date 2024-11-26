@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import styles from "./NavBar.module.scss";
+import { useEffect, useRef, useState } from "react";
 
 const NAVBAR_ITEMS = ["Collections", "Men", "Women", "About", "Contact"];
 
