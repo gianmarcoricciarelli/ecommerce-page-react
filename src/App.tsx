@@ -1,5 +1,7 @@
+import { Header } from "./components/Header/Header";
+
 function App() {
-    return <span>ok</span>;
+    return <Header />;
 }
 
 export default App;

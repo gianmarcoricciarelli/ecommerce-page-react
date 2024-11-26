@@ -1,0 +1,14 @@
+.header {
+    height: 120px;
+    border-bottom: 1px solid var(--grayish-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo-and-navbar-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+}

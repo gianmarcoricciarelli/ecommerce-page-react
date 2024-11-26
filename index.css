@@ -82,3 +82,9 @@ h6 {
 #__next {
     isolation: isolate;
 }
+
+#root {
+    height: 100dvh;
+    width: 100dvw;
+    padding: 0 250px 0 250px;
+}
