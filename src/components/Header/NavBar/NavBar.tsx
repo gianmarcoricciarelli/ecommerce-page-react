@@ -16,6 +16,7 @@ export function NavBar() {
 
     useEffect(() => {
         if (navBarItemsRefs.current[0]) {
+            setSliderLeft(navBarItemsRefs.current[0].offsetLeft);
             setSliderWidth(navBarItemsRefs.current[0].clientWidth);
         }
     }, []);
