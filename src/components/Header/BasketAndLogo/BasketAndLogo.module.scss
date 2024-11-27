@@ -1,0 +1,24 @@
+.basket-and-logo {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    &__basket {
+        > :first-child {
+            transition: all 300ms ease-in-out;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            > :first-child {
+                fill: var(--very-dark-blue);
+            }
+        }
+    }
+
+    img {
+        width: 4rem;
+        height: 4rem;
+    }
+}
