@@ -1,31 +1,14 @@
 import imageAvatar from "../../../../assets/images/image-avatar.png";
+import { Basket } from "./Basket/Basket";
 import styles from "./BasketAndLogo.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export function BasketAndLogo() {
-    const [cartOpacity, setCartOpacity] = useState(0);
-
-    const cartRef = useRef<HTMLDivElement>(null);
+    const [basketOpacity, setBasketOpacity] = useState(0);
 
     const onClickHandler = () => {
-        setCartOpacity(1);
+        setBasketOpacity(1);
     };
-
-    const onClickOutside = (event: MouseEvent | TouchEvent) => {
-        if (cartRef.current) {
-            if (!cartRef.current.contains(event.target as Node)) {
-                setCartOpacity(0);
-            }
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener("mousedown", onClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", onClickOutside);
-        };
-    }, []);
 
     return (
         <div className={styles["basket-and-logo"]}>
@@ -48,24 +31,10 @@ export function BasketAndLogo() {
             >
                 <img src={imageAvatar} alt="The User's avatar" />
             </div>
-            <div
-                ref={cartRef}
-                className={styles["basket-and-logo__basket"]}
-                style={{ opacity: cartOpacity }}
-            >
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cum, officiis omnis nihil quo at tempora debitis ipsa
-                    recusandae quam velit quia eos vero ducimus ipsam enim
-                    tempore aspernatur necessitatibus mollitia!
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis beatae quia molestias atque neque reprehenderit
-                    nihil magni obcaecati vel. Aspernatur ut nulla voluptatibus
-                    reiciendis inventore odit non, eius quisquam similique!
-                </p>
-            </div>
+            <Basket
+                basketOpacity={basketOpacity}
+                setBasketOpacity={setBasketOpacity}
+            />
         </div>
     );
 }
