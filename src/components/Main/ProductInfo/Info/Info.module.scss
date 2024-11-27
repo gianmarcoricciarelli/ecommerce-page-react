@@ -1,0 +1,46 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    &__description {
+        font-size: 1.6rem;
+        color: var(--dark-grayish-blue);
+    }
+
+    &__price {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        &__discounted-price {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+
+            &__price {
+                color: var(--very-dark-blue);
+                font-size: 2.4rem;
+            }
+
+            &__discount-badge {
+                background-color: var(--very-dark-blue);
+                padding: 0 0.8rem 0 0.8rem;
+                border-radius: 5px;
+
+                span {
+                    color: var(--white);
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        &__discount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark-grayish-blue);
+            text-decoration: line-through;
+        }
+    }
+}

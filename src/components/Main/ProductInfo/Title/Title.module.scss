@@ -1,0 +1,16 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    &__company {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark-grayish-blue);
+    }
+
+    &__product-name {
+        font-size: 3.2rem;
+        color: var(--very-dark-blue);
+    }
+}
