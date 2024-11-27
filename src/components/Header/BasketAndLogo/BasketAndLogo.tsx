@@ -4,10 +4,12 @@ import styles from "./BasketAndLogo.module.scss";
 import { useState } from "react";
 
 export function BasketAndLogo() {
-    const [basketOpacity, setBasketOpacity] = useState(0);
+    const [isBasketVisible, setIsBasketVisible] = useState(false);
 
     const onClickHandler = () => {
-        setBasketOpacity(1);
+        if (!isBasketVisible) {
+            setIsBasketVisible(true);
+        }
     };
 
     return (
@@ -31,10 +33,9 @@ export function BasketAndLogo() {
             >
                 <img src={imageAvatar} alt="The User's avatar" />
             </div>
-            <Basket
-                basketOpacity={basketOpacity}
-                setBasketOpacity={setBasketOpacity}
-            />
+            {isBasketVisible && (
+                <Basket setIsBasketVisible={setIsBasketVisible} />
+            )}
         </div>
     );
 }

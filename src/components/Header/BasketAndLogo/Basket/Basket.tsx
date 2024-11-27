@@ -1,12 +1,13 @@
 import styles from "./Basket.module.scss";
-import React, { SetStateAction, useEffect, useRef } from "react";
+import React, { SetStateAction, useEffect, useRef, useState } from "react";
 
 interface IBasket {
-    basketOpacity: number;
-    setBasketOpacity: React.Dispatch<SetStateAction<number>>;
+    setIsBasketVisible: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export function Basket({ basketOpacity, setBasketOpacity }: IBasket) {
+export function Basket({ setIsBasketVisible }: IBasket) {
+    const [basketOpacity, setBasketOpacity] = useState(0);
+
     const cartRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -14,16 +15,19 @@ export function Basket({ basketOpacity, setBasketOpacity }: IBasket) {
             if (cartRef.current) {
                 if (!cartRef.current.contains(event.target as Node)) {
                     setBasketOpacity(0);
+                    setTimeout(() => setIsBasketVisible(false), 500);
                 }
             }
         };
 
         document.addEventListener("mousedown", onClickOutside);
 
+        setBasketOpacity(1);
+
         return () => {
             document.removeEventListener("mousedown", onClickOutside);
         };
-    }, [setBasketOpacity]);
+    }, [setIsBasketVisible]);
 
     return (
         <div
