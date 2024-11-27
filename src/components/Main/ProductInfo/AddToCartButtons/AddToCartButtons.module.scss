@@ -11,10 +11,22 @@
         align-items: center;
         gap: 4rem;
 
-        &__counter {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--very-dark-blue);
+        &__icon {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__counter-container {
+            width: 1.2rem;
+            text-align: center;
+            user-select: none;
+
+            &__counter {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--very-dark-blue);
+            }
         }
     }
 }

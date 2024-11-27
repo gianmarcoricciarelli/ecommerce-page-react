@@ -1,14 +1,29 @@
+import {
+    CartContext,
+    ICartContext,
+} from "../../../../contexts/CartContext/CartContexts";
 import styles from "./AddToCartButtons.module.scss";
+import { Context, useContext } from "react";
 
 export function AddToCartButtons() {
+    const { quantity, setQuantity } = useContext(
+        CartContext as Context<ICartContext>,
+    );
+
     return (
         <div className={styles["add-to-cart-buttons"]}>
             <div className={styles["add-to-cart-buttons__quantity"]}>
                 <svg
+                    className={styles["add-to-cart-buttons__quantity__icon"]}
                     width="12"
                     height="4"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
+                    onClick={() => {
+                        if (quantity > 0) {
+                            setQuantity((prevQuantity) => prevQuantity - 1);
+                        }
+                    }}
                 >
                     <defs>
                         <path
@@ -18,16 +33,32 @@ export function AddToCartButtons() {
                     </defs>
                     <use fill="#FF7E1B" fill-rule="nonzero" xlinkHref="#a" />
                 </svg>
-                <span
-                    className={styles["add-to-cart-buttons__quantity__counter"]}
+                <div
+                    className={
+                        styles[
+                            "add-to-cart-buttons__quantity__counter-container"
+                        ]
+                    }
                 >
-                    0
-                </span>
+                    <span
+                        className={
+                            styles[
+                                "add-to-cart-buttons__quantity__counter-container__counter"
+                            ]
+                        }
+                    >
+                        {quantity}
+                    </span>
+                </div>
                 <svg
+                    className={styles["add-to-cart-buttons__quantity__icon"]}
                     width="12"
                     height="12"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
+                    onClick={() => {
+                        setQuantity((prevQuantity) => prevQuantity + 1);
+                    }}
                 >
                     <defs>
                         <path
