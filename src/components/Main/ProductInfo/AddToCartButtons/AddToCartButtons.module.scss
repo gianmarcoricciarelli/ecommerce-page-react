@@ -1,0 +1,20 @@
+.add-to-cart-buttons {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+
+    &__quantity {
+        padding: 1.2rem;
+        background-color: var(--light-grayish-blue);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        &__counter {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--very-dark-blue);
+        }
+    }
+}
