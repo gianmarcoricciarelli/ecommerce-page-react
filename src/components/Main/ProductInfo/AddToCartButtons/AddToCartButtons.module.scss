@@ -43,11 +43,15 @@
         user-select: none;
         transition: all 300ms ease-in-out;
 
-        &:hover {
+        &:hover:not([disabled]) {
             cursor: pointer;
         }
 
-        &:active {
+        &:active:not([diabled]) {
+            background-color: var(--pale-orange);
+        }
+
+        &:disabled {
             background-color: var(--pale-orange);
         }
 
