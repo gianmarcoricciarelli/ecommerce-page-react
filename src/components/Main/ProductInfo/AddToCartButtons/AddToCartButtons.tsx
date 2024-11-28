@@ -11,6 +11,7 @@ export function AddToCartButtons() {
     const [quantity, setQuantity] = useState(0);
 
     const onClickHandler = () => {
+        setQuantity(0);
         setItemsInCart((prevItemsInCart) => prevItemsInCart + quantity);
     };
 
