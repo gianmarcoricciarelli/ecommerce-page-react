@@ -27,7 +27,10 @@ export function Basket({ setIsBasketVisible }: IBasket) {
 
     const onCheckoutButtonClickHandler = () => {
         setBasketOpacity(0);
-        setTimeout(() => setIsBasketVisible(false), 500);
+        setTimeout(() => {
+            setIsBasketVisible(false);
+            setItemsInCart(0);
+        }, 500);
     };
 
     useEffect(() => {
