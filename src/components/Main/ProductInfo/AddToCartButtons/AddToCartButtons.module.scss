@@ -53,6 +53,14 @@
 
         &:disabled {
             background-color: var(--pale-orange);
+
+            span {
+                color: var(--grayish-blue);
+            }
+
+            path {
+                fill: var(--grayish-blue);
+            }
         }
 
         span {

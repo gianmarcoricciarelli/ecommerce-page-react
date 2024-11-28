@@ -1,0 +1,31 @@
+.light-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__main-image-container {
+        height: 50%;
+
+        img {
+            object-fit: cover;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border-radius: 2rem;
+        }
+    }
+
+    &__other-images-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__other-image {
+            max-width: 20%;
+
+            img {
+                border-radius: 2rem;
+            }
+        }
+    }
+}
