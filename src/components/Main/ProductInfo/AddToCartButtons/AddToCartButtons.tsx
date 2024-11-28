@@ -36,7 +36,7 @@ export function AddToCartButtons() {
                             id="a"
                         />
                     </defs>
-                    <use fill="#FF7E1B" fill-rule="nonzero" xlinkHref="#a" />
+                    <use fill="#FF7E1B" fillRule="nonzero" xlinkHref="#a" />
                 </svg>
                 <div
                     className={
@@ -71,7 +71,7 @@ export function AddToCartButtons() {
                             id="b"
                         />
                     </defs>
-                    <use fill="#FF7E1B" fill-rule="nonzero" xlinkHref="#b" />
+                    <use fill="#FF7E1B" fillRule="nonzero" xlinkHref="#b" />
                 </svg>
             </div>
             <button
