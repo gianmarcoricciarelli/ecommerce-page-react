@@ -23,10 +23,38 @@
             user-select: none;
 
             &__counter {
-                font-size: 1.2rem;
+                font-size: 1.6rem;
                 font-weight: 700;
                 color: var(--very-dark-blue);
             }
+        }
+    }
+
+    &__add-to-cart {
+        padding: 1.2rem;
+        background-color: var(--orange);
+        border: unset;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.6rem;
+        flex-grow: 1;
+        user-select: none;
+        transition: all 300ms ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            background-color: var(--pale-orange);
+        }
+
+        span {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--very-dark-blue);
         }
     }
 }

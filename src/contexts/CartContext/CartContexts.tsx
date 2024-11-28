@@ -1,8 +1,7 @@
 import React, { createContext, SetStateAction, useState } from "react";
 
 export interface ICartContext {
-    quantity: number;
-    setQuantity: React.Dispatch<SetStateAction<number>>;
+    setItemsInCart: React.Dispatch<SetStateAction<number>>;
 }
 
 export const CartContext = createContext<ICartContext | null>(null);
@@ -12,10 +11,10 @@ interface ICartContextProvider {
 }
 
 export function CartContextProvider({ children }: ICartContextProvider) {
-    const [quantity, setQuantity] = useState(0);
+    const [itemsInCart, setItemsInCart] = useState(0);
 
     return (
-        <CartContext.Provider value={{ quantity, setQuantity }}>
+        <CartContext.Provider value={{ setItemsInCart }}>
             {children}
         </CartContext.Provider>
     );
