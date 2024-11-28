@@ -1,4 +1,4 @@
-.modal {
+.backdrop {
     position: fixed;
     background-color: rgba(29, 32, 37, 0.7);
     top: 0;
@@ -11,9 +11,26 @@
     transition: all 300ms ease-in-out;
     z-index: 999;
 
-    &__content {
+    &__modal {
         max-width: 25%;
         max-height: 75%;
         z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &__header {
+            display: flex;
+            justify-content: flex-end;
+
+            path {
+                transition: all 300ms ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    fill: var(--orange);
+                }
+            }
+        }
     }
 }
