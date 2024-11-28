@@ -1,6 +1,7 @@
 import React, { createContext, SetStateAction, useState } from "react";
 
 export interface ICartContext {
+    itemsInCart: number;
     setItemsInCart: React.Dispatch<SetStateAction<number>>;
 }
 
@@ -14,7 +15,7 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     const [itemsInCart, setItemsInCart] = useState(0);
 
     return (
-        <CartContext.Provider value={{ setItemsInCart }}>
+        <CartContext.Provider value={{ itemsInCart, setItemsInCart }}>
             {children}
         </CartContext.Provider>
     );
