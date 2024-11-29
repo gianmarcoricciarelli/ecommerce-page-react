@@ -4,3 +4,9 @@
     flex-direction: column;
     gap: 4rem;
 }
+
+@media screen and (max-width: 37.5rem) {
+    .product-info {
+        padding: 2rem;
+    }
+}
