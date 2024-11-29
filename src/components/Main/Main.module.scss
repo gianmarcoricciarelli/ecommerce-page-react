@@ -7,3 +7,12 @@
     grid-column-gap: 8rem;
     grid-row-gap: 0rem;
 }
+
+@media screen and (max-width: 37.5rem) {
+    .product-content {
+        height: unset;
+        padding: unset;
+        display: flex;
+        flex-direction: column;
+    }
+}

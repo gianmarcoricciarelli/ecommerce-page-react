@@ -2,6 +2,10 @@ import {
     IModalContext,
     ModalContext,
 } from "../../../contexts/ModalContext/ModalContext";
+import {
+    IResizeObserverContext,
+    ResizeObserverContext,
+} from "../../../contexts/ResizeObserverContext/ResizeObserverContext";
 import styles from "./LightBox.module.scss";
 import { Context, useContext, useState } from "react";
 
@@ -10,6 +14,9 @@ interface ILightBox {
 }
 
 export function LightBox({ isInModal }: ILightBox) {
+    const { isMobile } = useContext(
+        ResizeObserverContext as Context<IResizeObserverContext>,
+    );
     const { setIsModalOpen } = useContext(
         ModalContext as Context<IModalContext>,
     );
@@ -38,13 +45,13 @@ export function LightBox({ isInModal }: ILightBox) {
         <div className={styles["light-box"]}>
             <div
                 className={styles["light-box__main-image-container"]}
-                onClick={onMainImageClickHandler}
+                onClick={!isMobile ? onMainImageClickHandler : undefined}
             >
                 <img
                     src={`assets/images/image-product-${imageIndex}.jpg`}
                     alt="Product image"
                 />
-                {isInModal && (
+                {(isInModal || isMobile) && (
                     <>
                         <button
                             className={`${styles["light-box__image-slider"]} ${styles["light-box__image-slider__previous"]}`}
@@ -97,28 +104,30 @@ export function LightBox({ isInModal }: ILightBox) {
                     </>
                 )}
             </div>
-            <div className={styles["light-box__other-images-container"]}>
-                {Array.from({ length: 4 }, (_, index) => index).map(
-                    (imgIdx) => (
-                        <div
-                            key={imgIdx}
-                            className={
-                                styles[
-                                    "light-box__other-images-container__other-image"
-                                ]
-                            }
-                            onClick={(event) =>
-                                onClickHandler(event, imgIdx + 1)
-                            }
-                        >
-                            <img
-                                src={`assets/images/image-product-${imgIdx + 1}-thumbnail.jpg`}
-                                alt="Thumbnail image"
-                            />
-                        </div>
-                    ),
-                )}
-            </div>
+            {!isMobile && (
+                <div className={styles["light-box__other-images-container"]}>
+                    {Array.from({ length: 4 }, (_, index) => index).map(
+                        (imgIdx) => (
+                            <div
+                                key={imgIdx}
+                                className={
+                                    styles[
+                                        "light-box__other-images-container__other-image"
+                                    ]
+                                }
+                                onClick={(event) =>
+                                    onClickHandler(event, imgIdx + 1)
+                                }
+                            >
+                                <img
+                                    src={`assets/images/image-product-${imgIdx + 1}-thumbnail.jpg`}
+                                    alt="Thumbnail image"
+                                />
+                            </div>
+                        ),
+                    )}
+                </div>
+            )}
         </div>
     );
 }
