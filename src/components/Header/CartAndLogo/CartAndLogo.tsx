@@ -1,16 +1,31 @@
 import imageAvatar from "../../../../assets/images/image-avatar.png";
+import {
+    CartContext,
+    ICartContext,
+} from "../../../contexts/CartContext/CartContexts";
 import { Cart } from "./Cart/Cart";
 import styles from "./CartAndLogo.module.scss";
-import { useState } from "react";
+import { Context, useContext, useEffect, useState } from "react";
 
 export function CartAndLogo() {
+    const { itemsInCart } = useContext(CartContext as Context<ICartContext>);
+
     const [isCartVisible, setIsCartVisible] = useState(false);
+    const [counterOpacity, setCounterOpacity] = useState(0);
 
     const onClickHandler = () => {
         if (!isCartVisible) {
             setIsCartVisible(true);
         }
     };
+
+    useEffect(() => {
+        if (itemsInCart > 0) {
+            setCounterOpacity(1);
+        } else {
+            setCounterOpacity(0);
+        }
+    }, [counterOpacity, itemsInCart]);
 
     return (
         <div className={styles["cart-and-logo"]}>
@@ -32,6 +47,12 @@ export function CartAndLogo() {
                 onClick={onClickHandler}
             >
                 <img src={imageAvatar} alt="The User's avatar" />
+            </div>
+            <div
+                className={styles["cart-and-logo__items-counter"]}
+                style={{ opacity: counterOpacity }}
+            >
+                <span>{itemsInCart}</span>
             </div>
             {isCartVisible && <Cart setIsCartVisible={setIsCartVisible} />}
         </div>
