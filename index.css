@@ -87,3 +87,9 @@ h6 {
     width: 100dvw;
     padding: 0 250px 0 250px;
 }
+
+@media screen and (max-width: 37.5rem) {
+    #root {
+        padding: unset;
+    }
+}

@@ -12,3 +12,15 @@
         gap: 6rem;
     }
 }
+
+@media screen and (max-width: 37.5rem) {
+    .header {
+        height: unset;
+        padding: 1.6rem 2rem 2rem 2rem;
+        border-bottom: unset;
+
+        &__logo-and-navbar-container {
+            gap: 2rem;
+        }
+    }
+}

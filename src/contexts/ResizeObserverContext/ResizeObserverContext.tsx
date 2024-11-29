@@ -29,7 +29,7 @@ export function ResizeObserverContextProvider({
             }
         });
 
-        resizeObserver.observe(document.querySelector("body")!);
+        resizeObserver.observe(document.querySelector("body") as Element);
 
         return () => {
             resizeObserver.disconnect();

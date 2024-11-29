@@ -86,3 +86,13 @@
         }
     }
 }
+
+@media screen and (max-width: 37.5rem) {
+    .cart {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 999;
+    }
+}
