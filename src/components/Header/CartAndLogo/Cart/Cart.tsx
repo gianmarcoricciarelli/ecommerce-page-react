@@ -2,7 +2,7 @@ import {
     CartContext,
     ICartContext,
 } from "../../../../contexts/CartContext/CartContexts";
-import styles from "./Basket.module.scss";
+import styles from "./Cart.module.scss";
 import React, {
     Context,
     SetStateAction,
@@ -12,23 +12,23 @@ import React, {
     useState,
 } from "react";
 
-interface IBasket {
-    setIsBasketVisible: React.Dispatch<SetStateAction<boolean>>;
+interface ICart {
+    setIsCartVisible: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export function Basket({ setIsBasketVisible }: IBasket) {
+export function Cart({ setIsCartVisible }: ICart) {
     const { itemsInCart, setItemsInCart } = useContext(
         CartContext as Context<ICartContext>,
     );
 
-    const [basketOpacity, setBasketOpacity] = useState(0);
+    const [cartOpacity, setCartOpacity] = useState(0);
 
     const cartRef = useRef<HTMLDivElement>(null);
 
     const onCheckoutButtonClickHandler = () => {
-        setBasketOpacity(0);
+        setCartOpacity(0);
         setTimeout(() => {
-            setIsBasketVisible(false);
+            setIsCartVisible(false);
             setItemsInCart(0);
         }, 500);
     };
@@ -37,37 +37,35 @@ export function Basket({ setIsBasketVisible }: IBasket) {
         const onClickOutside = (event: MouseEvent | TouchEvent) => {
             if (cartRef.current) {
                 if (!cartRef.current.contains(event.target as Node)) {
-                    setBasketOpacity(0);
-                    setTimeout(() => setIsBasketVisible(false), 500);
+                    setCartOpacity(0);
+                    setTimeout(() => setIsCartVisible(false), 500);
                 }
             }
         };
 
         document.addEventListener("mousedown", onClickOutside);
 
-        setBasketOpacity(1);
+        setCartOpacity(1);
 
         return () => {
             document.removeEventListener("mousedown", onClickOutside);
         };
-    }, [setIsBasketVisible]);
+    }, [setIsCartVisible]);
 
     return (
         <div
             ref={cartRef}
-            className={styles["basket"]}
-            style={{ opacity: basketOpacity }}
+            className={styles["cart"]}
+            style={{ opacity: cartOpacity }}
         >
-            <div className={styles["basket__header"]}>
+            <div className={styles["cart__header"]}>
                 <span>Cart</span>
             </div>
             {itemsInCart > 0 ? (
-                <div className={styles["basket__content"]}>
-                    <div className={styles["basket__content__product"]}>
+                <div className={styles["cart__content"]}>
+                    <div className={styles["cart__content__product"]}>
                         <div
-                            className={
-                                styles["basket__content__product__image"]
-                            }
+                            className={styles["cart__content__product__image"]}
                         >
                             <img
                                 src="assets/images/image-product-1-thumbnail.jpg"
@@ -76,7 +74,7 @@ export function Basket({ setIsBasketVisible }: IBasket) {
                         </div>
                         <div
                             className={
-                                styles["basket__content__product__description"]
+                                styles["cart__content__product__description"]
                             }
                         >
                             <span>Fall Limited Edition Sneakers</span>
@@ -110,7 +108,7 @@ export function Basket({ setIsBasketVisible }: IBasket) {
                     </button>
                 </div>
             ) : (
-                <div className={styles["basket__empty"]}>
+                <div className={styles["cart__empty"]}>
                     <span>Your cart is empty.</span>
                 </div>
             )}

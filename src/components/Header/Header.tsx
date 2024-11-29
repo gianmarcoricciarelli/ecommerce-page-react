@@ -1,5 +1,5 @@
 import SneakersLogo from "../../../assets/images/logo.svg";
-import { BasketAndLogo } from "./BasketAndLogo/BasketAndLogo";
+import { CartAndLogo } from "./CartAndLogo/CartAndLogo";
 import styles from "./Header.module.scss";
 import { NavBar } from "./NavBar/NavBar";
 
@@ -10,7 +10,7 @@ export function Header() {
                 <SneakersLogo />
                 <NavBar />
             </div>
-            <BasketAndLogo />
+            <CartAndLogo />
         </header>
     );
 }

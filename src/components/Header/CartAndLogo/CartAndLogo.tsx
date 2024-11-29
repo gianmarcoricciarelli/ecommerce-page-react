@@ -1,24 +1,24 @@
 import imageAvatar from "../../../../assets/images/image-avatar.png";
-import { Basket } from "./Basket/Basket";
-import styles from "./BasketAndLogo.module.scss";
+import { Cart } from "./Cart/Cart";
+import styles from "./CartAndLogo.module.scss";
 import { useState } from "react";
 
-export function BasketAndLogo() {
-    const [isBasketVisible, setIsBasketVisible] = useState(false);
+export function CartAndLogo() {
+    const [isCartVisible, setIsCartVisible] = useState(false);
 
     const onClickHandler = () => {
-        if (!isBasketVisible) {
-            setIsBasketVisible(true);
+        if (!isCartVisible) {
+            setIsCartVisible(true);
         }
     };
 
     return (
-        <div className={styles["basket-and-logo"]}>
+        <div className={styles["cart-and-logo"]}>
             <svg
                 width="22"
                 height="20"
                 xmlns="http://www.w3.org/2000/svg"
-                className={styles["basket-and-logo__cart"]}
+                className={styles["cart-and-logo__cart"]}
                 onClick={onClickHandler}
             >
                 <path
@@ -28,14 +28,12 @@ export function BasketAndLogo() {
                 />
             </svg>
             <div
-                className={styles["basket-and-logo__avatar"]}
+                className={styles["cart-and-logo__avatar"]}
                 onClick={onClickHandler}
             >
                 <img src={imageAvatar} alt="The User's avatar" />
             </div>
-            {isBasketVisible && (
-                <Basket setIsBasketVisible={setIsBasketVisible} />
-            )}
+            {isCartVisible && <Cart setIsCartVisible={setIsCartVisible} />}
         </div>
     );
 }
